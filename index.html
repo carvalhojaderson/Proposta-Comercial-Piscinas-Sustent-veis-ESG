@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Piscinas Sustentaveis ESG - Proposta Comercial Completa</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+    --primary: #0B3D2E; --primary-light: #1A6B4F; --primary-dark: #062A1F;
+    --accent: #C9A84C; --accent-light: #E8D5A3; --text: #1A1A1A;
+    --text-secondary: #4A4A4A; --text-muted: #7A7A7A; --bg: #FAFAFA;
+    --bg-card: #FFFFFF; --border: #E5E5E5; --border-light: #F0F0F0;
+    --success: #2E7D32; --warning: #E67E22; --danger: #C62828; --info: #1565C0; --water: #0277BD;
+}
+body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; }
+.container { max-width: 1200px; margin: 0 auto; background: var(--bg-card); box-shadow: 0 0 80px rgba(0,0,0,0.08); }
+.nav { position: sticky; top: 0; background: var(--primary); padding: 0 40px; z-index: 100; display: flex; align-items: center; gap: 4px; overflow-x: auto; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.nav-item { color: rgba(255,255,255,0.7); padding: 14px 16px; font-size: 0.78em; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; cursor: pointer; border: none; background: none; white-space: nowrap; transition: all 0.2s; border-bottom: 3px solid transparent; }
+.nav-item:hover, .nav-item.active { color: white; border-bottom-color: var(--accent); }
+.header { background: var(--primary); color: white; padding: 60px 80px; position: relative; overflow: hidden; }
+.header::before { content: ''; position: absolute; top: 0; right: 0; width: 45%; height: 100%; background: linear-gradient(135deg, transparent 0%, rgba(201,168,76,0.08) 100%); pointer-events: none; }
+.header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; position: relative; z-index: 1; }
+.header-logo { font-family: 'Playfair Display', serif; font-size: 0.85em; letter-spacing: 3px; text-transform: uppercase; opacity: 0.7; }
+.header-date { font-size: 0.75em; letter-spacing: 2px; text-transform: uppercase; opacity: 0.6; }
+.header h1 { font-family: 'Playfair Display', serif; font-size: 2.6em; font-weight: 700; line-height: 1.2; margin-bottom: 16px; position: relative; z-index: 1; }
+.header-subtitle { font-size: 1.15em; font-weight: 300; opacity: 0.85; max-width: 700px; position: relative; z-index: 1; }
+.header-divider { width: 80px; height: 3px; background: var(--accent); margin: 28px 0; position: relative; z-index: 1; }
+.header-badges { display: flex; gap: 12px; flex-wrap: wrap; position: relative; z-index: 1; }
+.header-badge { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 8px 18px; border-radius: 4px; font-size: 0.72em; letter-spacing: 1px; text-transform: uppercase; }
+.content { padding: 0; }
+.section { padding: 56px 80px; border-bottom: 1px solid var(--border-light); display: none; }
+.section.active { display: block; animation: fadeIn 0.4s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.section-header { display: flex; align-items: flex-start; gap: 20px; margin-bottom: 36px; }
+.section-number { font-family: 'Playfair Display', serif; font-size: 3em; font-weight: 700; color: var(--accent); line-height: 1; opacity: 0.6; }
+.section-title-group { flex: 1; }
+.section-title { font-family: 'Playfair Display', serif; font-size: 1.6em; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+.section-subtitle { font-size: 0.92em; color: var(--text-muted); font-weight: 400; }
+.pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 32px 0; }
+.pillar { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 36px 28px; text-align: center; transition: all 0.3s ease; position: relative; overflow: hidden; }
+.pillar:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+.pillar-icon { font-size: 2.4em; margin-bottom: 16px; }
+.pillar h3 { font-family: 'Playfair Display', serif; font-size: 1.15em; color: var(--primary); margin-bottom: 12px; }
+.pillar p { font-size: 0.88em; color: var(--text-secondary); line-height: 1.6; }
+.pillar-green { border-top: 4px solid var(--success); }
+.pillar-energy { border-top: 4px solid var(--warning); }
+.pillar-money { border-top: 4px solid var(--accent); }
+.card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 32px; transition: all 0.3s ease; }
+.card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.06); border-color: var(--accent-light); }
+.card-title { font-family: 'Playfair Display', serif; font-size: 1.15em; font-weight: 600; color: var(--primary); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid var(--border-light); }
+.card-body { font-size: 0.9em; color: var(--text-secondary); line-height: 1.7; }
+.card-body ul { list-style: none; padding: 0; }
+.card-body ul li { padding: 7px 0; padding-left: 22px; position: relative; }
+.card-body ul li::before { content: '—'; position: absolute; left: 0; color: var(--accent); font-weight: 600; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.four-col { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+@media (max-width: 1024px) { .two-col, .three-col { grid-template-columns: 1fr 1fr; } .four-col { grid-template-columns: 1fr 1fr; } .pillars { grid-template-columns: 1fr; } }
+@media (max-width: 768px) { .two-col, .three-col, .four-col { grid-template-columns: 1fr; } .section { padding: 36px 24px; } .header { padding: 40px 24px; } .header h1 { font-size: 1.8em; } .nav { padding: 0 16px; } .nav-item { padding: 12px 10px; font-size: 0.7em; } }
+.table-wrap { overflow-x: auto; margin: 28px 0; border-radius: 8px; border: 1px solid var(--border); }
+table { width: 100%; border-collapse: collapse; font-size: 0.85em; }
+th { background: var(--primary); color: white; padding: 16px 20px; text-align: left; font-weight: 600; letter-spacing: 0.3px; font-size: 0.82em; text-transform: uppercase; }
+td { padding: 16px 20px; border-bottom: 1px solid var(--border-light); vertical-align: top; color: var(--text-secondary); line-height: 1.6; }
+tr:last-child td { border-bottom: none; } tr:nth-child(even) { background: #FAFBFA; } tr:hover { background: #F5F8F5; }
+.callout { padding: 28px 32px; border-radius: 8px; margin: 24px 0; border-left: 4px solid; font-size: 0.9em; line-height: 1.7; }
+.callout-primary { background: linear-gradient(135deg, #F0F7F0, #E8F5E9); border-color: var(--primary); }
+.callout-warning { background: linear-gradient(135deg, #FFF8F0, #FFF3E0); border-color: var(--warning); }
+.callout-danger { background: linear-gradient(135deg, #FFF5F5, #FFEBEE); border-color: var(--danger); }
+.callout-info { background: linear-gradient(135deg, #F0F7FF, #E3F2FD); border-color: var(--info); }
+.callout-gold { background: linear-gradient(135deg, #FFFBF0, #FFF8E1); border-color: var(--accent); }
+.callout-dark { background: linear-gradient(135deg, #1A2E28, #0B3D2E); color: white; border-color: var(--accent); }
+.callout-water { background: linear-gradient(135deg, #E0F7FA, #E1F5FE); border-color: var(--water); }
+.callout-title { font-family: 'Playfair Display', serif; font-weight: 600; font-size: 1.05em; margin-bottom: 10px; }
+.tag { display: inline-block; padding: 4px 12px; border-radius: 4px; font-size: 0.7em; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; margin-right: 6px; margin-bottom: 4px; }
+.tag-green { background: #E8F5E9; color: var(--success); } .tag-orange { background: #FFF3E0; color: #E65100; } .tag-red { background: #FFEBEE; color: var(--danger); } .tag-blue { background: #E3F2FD; color: var(--info); } .tag-purple { background: #F3E5F5; color: #6A1B9A; } .tag-gold { background: #FFF8E1; color: #F57F17; } .tag-dark { background: #263238; color: white; } .tag-water { background: #E1F5FE; color: var(--water); }
+.scenario { border: 2px solid var(--primary); border-radius: 8px; padding: 32px; margin: 24px 0; background: linear-gradient(135deg, #FAFCFA, #F5F8F5); }
+.scenario-title { font-family: 'Playfair Display', serif; font-size: 1.2em; font-weight: 600; color: var(--primary); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+.bond-type { border: 1px solid var(--border); border-radius: 8px; padding: 28px; margin: 20px 0; position: relative; overflow: hidden; background: var(--bg-card); }
+.bond-type::before { content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%; }
+.bond-green::before { background: var(--success); } .bond-blue::before { background: var(--water); } .bond-social::before { background: var(--warning); } .bond-gender::before { background: var(--danger); } .bond-sustainable::before { background: #6A1B9A; } .bond-linked::before { background: #37474F; } .bond-transition::before { background: #795548; }
+.bond-header { font-family: 'Playfair Display', serif; font-size: 1.15em; font-weight: 600; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+.bond-green .bond-header { color: var(--success); } .bond-blue .bond-header { color: var(--water); } .bond-social .bond-header { color: var(--warning); } .bond-gender .bond-header { color: var(--danger); } .bond-sustainable .bond-header { color: #6A1B9A; } .bond-linked .bond-header { color: #37474F; } .bond-transition .bond-header { color: #795548; }
+.timeline { display: flex; justify-content: space-between; margin: 40px 0; position: relative; padding-top: 20px; }
+.timeline::before { content: ''; position: absolute; top: 44px; left: 8%; right: 8%; height: 2px; background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary)); }
+.tl-step { text-align: center; width: 18%; position: relative; z-index: 1; }
+.tl-num { width: 48px; height: 48px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1em; margin: 0 auto 14px; font-family: 'Playfair Display', serif; }
+.tl-title { font-weight: 600; color: var(--primary); font-size: 0.85em; margin-bottom: 6px; }
+.tl-desc { font-size: 0.78em; color: var(--text-muted); line-height: 1.4; }
+.tl-time { display: inline-block; background: #E8F5E9; color: var(--primary); padding: 3px 12px; border-radius: 12px; font-size: 0.72em; font-weight: 600; margin-top: 10px; }
+.metric-row { display: flex; gap: 20px; margin: 24px 0; flex-wrap: wrap; }
+.metric { flex: 1; text-align: center; padding: 28px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; min-width: 160px; }
+.metric-value { font-family: 'Playfair Display', serif; font-size: 2.4em; font-weight: 700; color: var(--primary); line-height: 1; }
+.metric-label { font-size: 0.82em; color: var(--text-muted); margin-top: 8px; text-transform: uppercase; letter-spacing: 1px; }
+.empreendimento { border: 1px solid var(--border); border-radius: 8px; padding: 32px; margin: 20px 0; background: var(--bg-card); }
+.emp-title { font-family: 'Playfair Display', serif; font-size: 1.2em; font-weight: 600; color: var(--primary); margin-bottom: 20px; padding-bottom: 14px; border-bottom: 2px solid var(--border-light); }
+.wacc-box { background: linear-gradient(135deg, #1A2E28, #0B3D2E); color: white; border-radius: 8px; padding: 32px; margin: 24px 0; }
+.wacc-title { font-family: 'Playfair Display', serif; font-size: 1.15em; font-weight: 600; color: var(--accent-light); margin-bottom: 16px; }
+.pre-code { background: rgba(255,255,255,0.05); border-radius: 6px; padding: 20px 24px; font-family: 'Courier New', monospace; font-size: 0.82em; line-height: 2; white-space: pre; overflow-x: auto; color: rgba(255,255,255,0.9); }
+.ref-box { background: #F8F9FA; border: 1px solid var(--border); border-radius: 6px; padding: 16px 20px; margin: 16px 0; font-size: 0.82em; color: var(--text-muted); }
+.ref-box strong { color: var(--primary); font-weight: 600; }
+.footer { background: var(--primary-dark); color: rgba(255,255,255,0.8); padding: 48px 80px; text-align: center; }
+.footer-title { font-family: 'Playfair Display', serif; font-size: 1.1em; margin-bottom: 12px; color: white; }
+.footer-text { font-size: 0.82em; line-height: 1.8; opacity: 0.7; }
+.footer-divider { width: 60px; height: 2px; background: var(--accent); margin: 20px auto; }
+.hero-highlight { background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: white; padding: 48px; border-radius: 12px; margin: 32px 0; text-align: center; }
+.hero-highlight h2 { font-family: 'Playfair Display', serif; font-size: 1.8em; margin-bottom: 16px; }
+.hero-highlight p { font-size: 1.1em; opacity: 0.9; max-width: 700px; margin: 0 auto; }
+.system-card { background: var(--bg-card); border-radius: 12px; padding: 32px; border: 1px solid var(--border); margin: 16px 0; }
+.system-header { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+.system-icon { width: 56px; height: 56px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.6em; }
+.system-a .system-icon { background: linear-gradient(135deg, #FFF3E0, #FFE0B2); } .system-b .system-icon { background: linear-gradient(135deg, #E1F5FE, #B3E5FC); } .system-c .system-icon { background: linear-gradient(135deg, #E8F5E9, #C8E6C9); }
+.system-name { font-family: 'Playfair Display', serif; font-size: 1.15em; font-weight: 600; color: var(--primary); }
+.system-result { background: linear-gradient(135deg, #F0F7F0, #E8F5E9); border-left: 4px solid var(--success); padding: 16px 20px; border-radius: 0 8px 8px 0; margin-top: 16px; font-size: 0.9em; color: var(--text-secondary); }
+.system-result strong { color: var(--primary); }
+.journey { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 32px 0; }
+.journey-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 28px; position: relative; overflow: hidden; }
+.journey-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
+.journey-1::before { background: var(--primary); } .journey-2::before { background: var(--info); } .journey-3::before { background: #6A1B9A; }
+.journey-phase { font-size: 0.75em; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 8px; }
+.journey-title { font-family: 'Playfair Display', serif; font-size: 1.1em; font-weight: 600; color: var(--primary); margin-bottom: 12px; }
+.journey-list { list-style: none; padding: 0; font-size: 0.85em; color: var(--text-secondary); line-height: 1.8; }
+.journey-list li { padding-left: 18px; position: relative; }
+.journey-list li::before { content: '•'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+@media (max-width: 768px) { .journey { grid-template-columns: 1fr; } }
+@media print { .section { page-break-inside: avoid; display: block !important; } .nav { display: none !important; } .header { background: var(--primary) !important; -webkit-print-color-adjust: exact; } th { background: var(--primary) !important; -webkit-print-color-adjust: exact; color: white !important; } .callout-dark { background: #1A2E28 !important; -webkit-print-color-adjust: exact; color: white !important; } .wacc-box { background: #1A2E28 !important; -webkit-print-color-adjust: exact; color: white !important; } }
+</style>
+<base target="_blank">
+</head>
+<body>
+
+<div class="container">
+
+<div class="nav">
+    <button class="nav-item active" onclick="showSection('sumario')">Sumario</button>
+    <button class="nav-item" onclick="showSection('solucao')">Solucao Tecnica</button>
+    <button class="nav-item" onclick="showSection('financiamento')">Financiamento</button>
+    <button class="nav-item" onclick="showSection('creditoesg')">Credito ESG</button>
+    <button class="nav-item" onclick="showSection('bonds')">Titulos Sustentaveis</button>
+    <button class="nav-item" onclick="showSection('empreendimentos')">Empreendimentos</button>
+    <button class="nav-item" onclick="showSection('documentos')">Documentos</button>
+    <button class="nav-item" onclick="showSection('wacc')">WACC e Valuation</button>
+    <button class="nav-item" onclick="showSection('acao')">Roteiro de Acao</button>
+</div>
+
+<div class="header">
+    <div class="header-top">
+        <div class="header-logo">Engenharia ESG - Piscinas Sustentaveis</div>
+        <div class="header-date">Junho 2026</div>
+    </div>
+    <h1>Piscinas Sustentaveis ESG</h1>
+    <p class="header-subtitle">Engenharia Hidrica, Transicao Energetica e Captacao de Credito Verde - Proposta Comercial Completa com Arquitetura de Credito e Emissao de Titulos Sustentaveis</p>
+    <div class="header-divider"></div>
+    <div class="header-badges">
+        <span class="header-badge">BNDES Fundo Clima</span>
+        <span class="header-badge">CAIXA ESG Ecoeficiencia</span>
+        <span class="header-badge">BID Invest</span>
+        <span class="header-badge">Green / Blue / SLB Bonds</span>
+        <span class="header-badge">LEED Platinum</span>
+        <span class="header-badge">IFC EDGE</span>
+    </div>
+</div>
+
+<div class="content">
+
+<!-- SECAO 1: SUMARIO -->
+<div class="section active" id="sumario">
+    <div class="section-header">
+        <div class="section-number">01</div>
+        <div class="section-title-group">
+            <div class="section-title">Sumario Executivo</div>
+            <div class="section-subtitle">A proposta que transforma piscinas de centro de custo em ativo sustentavel e financeiramente viavel</div>
+        </div>
+    </div>
+    <div class="hero-highlight">
+        <h2>O projeto que se autofinancia</h2>
+        <p>A economia mensal gerada em agua, energia e insumos supera o valor da parcela do financiamento, gerando fluxo de caixa positivo desde o primeiro mes.</p>
+    </div>
+    <div class="pillars">
+        <div class="pillar pillar-green">
+            <div class="pillar-icon">🌱</div>
+            <h3>Sustentabilidade</h3>
+            <p>Eliminacao de combustiveis fossesis, reuso de 100% da agua de retrolavagem e captacao pluvial integrada</p>
+        </div>
+        <div class="pillar pillar-energy">
+            <div class="pillar-icon">⚡</div>
+            <h3>Eficiencia</h3>
+            <p>Reducao de ate 90% na evaporacao de calor, economia de 20-60% em energia eletrica e eliminacao de cloro tradicional</p>
+        </div>
+        <div class="pillar pillar-money">
+            <div class="pillar-icon">💰</div>
+            <h3>Viabilidade</h3>
+            <p>Financiamento 100% via linhas verdes (BNDES/CAIXA) com taxas a partir de 6,5% a.a. e carencia de ate 5 anos</p>
+        </div>
+    </div>
+    <div class="callout-danger">
+        <div class="callout-title">O Cenario Atual: Piscinas como Centro de Custo</div>
+        Complexos de piscinas em hoteis, clubes, academias e condominios enfrentam desafios criticos: alto consumo de agua potavel, dependencia de caldeiras a gas/diesel, contas de energia elevadas, uso massivo de cloro e pressao crescente por metas ESG. <strong>As piscinas sao vistas como vilas ambientais e financeiras.</strong>
+    </div>
+    <div class="callout-dark">
+        <div class="callout-title">Nossa Proposta de Valor</div>
+        Uma solucao de engenharia integrada que transforma complexos de piscinas - tradicionalmente centros de custo - em <strong>ativos sustentaveis e financeiramente viaveis</strong>, com acesso a financiamento verde, certificacoes internacionais e emissao de titulos sustentaveis no mercado de capitais.
+    </div>
+    <div class="metric-row">
+        <div class="metric"><div class="metric-value">90%</div><div class="metric-label">Reducao de Evaporacao</div></div>
+        <div class="metric"><div class="metric-value">60%</div><div class="metric-label">Economia de Energia</div></div>
+        <div class="metric"><div class="metric-value">100%</div><div class="metric-label">Reuso de Retrolavagem</div></div>
+        <div class="metric"><div class="metric-value">6,5%</div><div class="metric-label">Taxa BNDES Fundo Clima</div></div>
+    </div>
+</div>
+
+<!-- SECAO 2: SOLUCAO TECNICA -->
+<div class="section" id="solucao">
+    <div class="section-header">
+        <div class="section-number">02</div>
+        <div class="section-title-group">
+            <div class="section-title">Arquitetura da Solucao Tecnica</div>
+            <div class="section-subtitle">Tres sistemas limpos integrados em um circuito hidrico-termico unificado</div>
+        </div>
+    </div>
+    <div class="system-card system-a">
+        <div class="system-header">
+            <div class="system-icon">☀️</div>
+            <div class="system-name">SISTEMA A - Transicao Energetica e Climatizacao Solar</div>
+        </div>
+        <div class="card-body">
+            <ul>
+                <li><strong>Coletores Termicos de Polipropileno:</strong> placas solares de alta densidade com aditivacao anti-UV, operando por termoacumulacao</li>
+                <li><strong>Capas Termicas Flutuantes Automaticas:</strong> mantas de polietileno expandido que bloqueiam radiacao infravermelha reversa</li>
+                <li><strong>Trocadores de Calor:</strong> capturam calor rejeitado do VRF para aquecer a piscina (aplicavel em incorporacoes verticais)</li>
+            </ul>
+        </div>
+        <div class="system-result"><strong>Resultado:</strong> reducao de ate 90% na perda de calor por evaporacao durante a noite, eliminando o reaquecimento matinal</div>
+    </div>
+    <div class="system-card system-b">
+        <div class="system-header">
+            <div class="system-icon">💧</div>
+            <div class="system-name">SISTEMA B - Gestao Hidrica em Ciclo Fechado</div>
+        </div>
+        <div class="card-body">
+            <ul>
+                <li><strong>Recuperacao de Retrolavagem:</strong> agua dos filtros de areia direcionada a tanque de decantacao pneumatica e filtragem micrometrica secundaria, retornando 100% limpa a piscina</li>
+                <li><strong>Captacao Pluvial:</strong> interligacao de calhas e cisternas com dispositivos first-flush, integrando agua da chuva ao sistema de reposicao automatica</li>
+                <li><strong>Filtragem Regenerativa (Perlita):</strong> reduz consumo de agua de retrolavagem em 90% vs. filtros de areia tradicionais</li>
+            </ul>
+        </div>
+        <div class="system-result"><strong>Resultado:</strong> eliminacao da captacao de agua potavel da concessionaria para fins de reposicao e manutencao</div>
+    </div>
+    <div class="system-card system-c">
+        <div class="system-header">
+            <div class="system-icon">⚡</div>
+            <div class="system-name">SISTEMA C - Eficiencia Eletromecanica e Ozonizacao</div>
+        </div>
+        <div class="card-body">
+            <ul>
+                <li><strong>Motobombas com Inversor de Frequencia (Inverter):</strong> ajuste inteligente de rotacao conforme estagio de filtragem, gerando economia de 20% a 60% em energia</li>
+                <li><strong>Oxidacao Avancada por Ozonio (O3):</strong> destruicao de microrganismos e cloraminas na tubulacao de retorno</li>
+                <li><strong>Bombas de Alta Eficiencia IE3/IE4:</strong> inversores de frequencia com selo Inmetro classe A</li>
+            </ul>
+        </div>
+        <div class="system-result"><strong>Resultado:</strong> eliminacao do odor de cloro, protecao da saude de usuarios e anulacao de emissoes de residuos volateis</div>
+    </div>
+    <div class="callout-water">
+        <div class="callout-title">Exemplo Pratico - Piscinas de Ondas</div>
+        Uma piscina de ondas de 15.000m3 movimenta ~50M litros/ano. Com filtragem regenerativa (Perlita) + captacao pluvial + reuso de retrolavagem, a economia chega a <strong>90% do consumo de agua potavel</strong>. Isso gera um KPI de <strong>Δ 45.000 m3/ano</strong>, suficiente para justificar um Blue Bond de R$ 50M-100M.
+    </div>
+</div>
+
+<!-- SECAO 3: FINANCIAMENTO -->
+<div class="section" id="financiamento">
+    <div class="section-header">
+        <div class="section-number">03</div>
+        <div class="section-title-group">
+            <div class="section-title">Mecanismos de Financiamento e Subsidios</div>
+            <div class="section-subtitle">O projeto e pago com a economia que ele proprio gera</div>
+        </div>
+    </div>
+    <div class="table-wrap">
+        <table>
+            <thead><tr><th style="width:22%">Criterio</th><th style="width:39%">BNDES FUNDO CLIMA</th><th style="width:39%">CAIXA ESG ECOEFICIENCIA</th></tr></thead>
+            <tbody>
+                <tr><td><strong>Publico-Alvo</strong></td><td>Empresas que priorizam prazos longos e tecnologia 100% nacional</td><td>Clientes da Rede de Atacado com flexibilidade tecnologica</td></tr>
+                <tr><td><strong>Equipamentos</strong></td><td>Obrigatoriamente nacionais com codigo FINAME/CFI</td><td>Permite importados nacionalizados</td></tr>
+                <tr><td><strong>Economia Exigida</strong></td><td>Comprovada via Indicadores 95 (MWh/ano) e 99 (m3/ano)</td><td>Minimo 20% de economia energetica ou de insumos</td></tr>
+                <tr><td><strong>Cobertura</strong></td><td>Ate 100% das maquinas + 30% para servicos associados</td><td>Ate 100% do projeto global</td></tr>
+                <tr><td><strong>Taxa de Juros</strong></td><td>6,5% a.a. + 0,9% BNDES + spread do banco</td><td>Taxas reduzidas e pre-fixadas pelo comite ESG</td></tr>
+                <tr><td><strong>Prazo</strong></td><td>Ate 16 anos (192 meses)</td><td>Ate 10 anos (120 meses)</td></tr>
+                <tr><td><strong>Carenncia</strong></td><td>Ate 5 anos (60 meses)</td><td>Ate 12 meses</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="callout-warning">
+        <div class="callout-title">Janela Critica BNDES</div>
+        A Circular 36/2026 vence em 31.12.2027. Protocolos com documentacao anexa devem ser feitos ate <strong>15.12.2027</strong>. Demais protocolos ate <strong>27.12.2027</strong>. Reapresentacao permitida ate <strong>17.12.2027</strong>. <strong>Planejamento deve iniciar imediatamente.</strong>
+    </div>
+    <div class="callout-gold">
+        <div class="callout-title">Relatorio SROI - O Passaporte para o Credito Verde</div>
+        O SROI (Sustainable Return on Investment) monetiza impactos ambientais, sociais e de governanca. <strong>Sem ele, o projeto concorre em linhas de credito comuns com juros altos; com ele, o projeto e elevado a investimento prioritario sustentavel.</strong> Estrutura: Memorial de Diagnostico - Engenharia Reversa - Monetizacao e Proxy Financeiro - Razao SROI e ROI Financeiro.
+    </div>
+</div>
+
+<!-- SECAO 4: CREDITO ESG -->
+<div class="section" id="creditoesg">
+    <div class="section-header">
+        <div class="section-number">04</div>
+        <div class="section-title-group">
+            <div class="section-title">Analise Comparativa Estrutural de Credito</div>
+            <div class="section-subtitle">BNDES Fundo Clima vs. BID Invest - A estrategia otima combina ambos</div>
+        </div>
+    </div>
+    <div class="callout-dark">
+        <div class="callout-title">Nota Estrategica</div>
+        O BNDES financia projetos nacionais com taxas subsidiadas e prazos longos. O BID Invest financia projetos de impacto global com validacao internacional, moeda forte e mecanismos dinamicos de juros. <strong>A estrategia otima combina ambos em estrutura hibrida.</strong>
+    </div>
+    <div class="table-wrap">
+        <table>
+            <thead><tr><th style="width:16%">Dimensao</th><th style="width:42%">BID Invest - Contratacao Direta</th><th style="width:42%">BNDES - Fundo Clima Automatico</th></tr></thead>
+            <tbody>
+                <tr><td><strong>Moeda</strong></td><td>USD (US$) ou BRL (R$) com swap interno. <strong>Protege Capex de equipamentos importados</strong> contra volatilidade cambial.</td><td>Exclusivamente em Reais (R$). <strong>Exposicao cambial total</strong> para componentes importados.</td></tr>
+                <tr><td><strong>Juros</strong></td><td><strong>Estrutura Dinamica (SLB):</strong> Juros reduzem (Step-Down) conforme metas sao atingidas. <span class="tag tag-green">Premia o sucesso</span></td><td><strong>Estrutura Fixa:</strong> Taxas pre-definidas por porte. Sem beneficio por superacao de metas. <span class="tag tag-orange">Fixo por lei</span></td></tr>
+                <tr><td><strong>Taxa Real</strong></td><td>SOFR + spread. <strong>~8,5% a.a. base</strong>, podendo cair para ~7,5% com Step-Down.</td><td>Custo Financeiro 6,5% + Rem. BNDES 1,4% + Rem. IF 2,5% = <strong>~10,4% a.a.</strong></td></tr>
+                <tr><td><strong>Janela Retroativa</strong></td><td><strong>Permite refinanciar despesas elegiveis ate 24 meses antes.</strong> Ideal para retrofits.</td><td>Exige protocolo <strong>antes do inicio fisico</strong> das despesas. Nao financia obras iniciadas.</td></tr>
+                <tr><td><strong>Analise</strong></td><td><strong>Project Finance + IFC Performance Standards.</strong> Foco na viabilidade do projeto e fluxos de caixa futuros.</td><td><strong>Garantias reais nacionais.</strong> Foco em certidoes fiscais e analise de risco cartoraria.</td></tr>
+                <tr><td><strong>Limite</strong></td><td><strong>Sem limite por CNPJ.</strong> Restrito apenas ao ticket de $500K-$5M por operacao.</td><td><strong>R$ 50M/12 meses compartilhado</strong> entre Maquinas e Projetos. R$ 150M para Norte/Nordeste.</td></tr>
+                <tr><td><strong>Canal</strong></td><td><strong>Direto com BID Invest.</strong> Sem intermediario bancario. Reduz spread e burocracia.</td><td>Indireto (via banco credenciado) ou Direto (acima de limites). Spread adicional do IF.</td></tr>
+                <tr><td><strong>Validacao</strong></td><td><strong>Atua como investidor ancora e validador.</strong> Selo de qualidade internacional que reduz spread futuro em 50-150 bps.</td><td>Nao atua como validador de titulos no mercado internacional. Credito puro, sem conversao em capital de mercado.</td></tr>
+                <tr><td><strong>Equity</strong></td><td><strong>Venture debt:</strong> conversao em equity + stock warrants. Diluicao controlada.</td><td>Sem equity features. Divida pura com garantias reais.</td></tr>
+                <tr><td><strong>Prazo Medio</strong></td><td>3-7 anos (venture debt). <strong>5-10 anos para bonds.</strong></td><td>Ate 16 anos (Projetos). <strong>Ate 25 anos</strong> (Logistica/Florestas).</td></tr>
+                <tr><td><strong>Carenncia</strong></td><td>Ate 24 meses para principal (adaptavel ao projeto).</td><td>Ate 5 anos (Projetos). <strong>Ate 8 anos</strong> (Florestas/Recursos Hidricos).</td></tr>
+                <tr><td><strong>Governanca</strong></td><td><strong>IFC Performance Standards (8 padroes).</strong> Lista de Exclusao do BID. CGDF.</td><td>Certidoes fiscais (CND, FGTS, CADIN). CAR para areas rurais.</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="callout-info">
+        <div class="callout-title">Veredicto Estrategico</div>
+        Para projetos de <strong>alto impacto ESG com componentes importados</strong> (bombas de ondas, membranas, chillers), o <strong>BID Invest e superior</strong> pela protecao cambial e validacao internacional. Para <strong>obras civis nacionais de longo prazo</strong>, o <strong>BNDES e insubstituivel</strong> pelo prazo de 16 anos e carencia de 5 anos. A estrategia otima: <strong>BNDES para a base (50-60%) + BID Invest/Bonds para o topo (40-50%)</strong>.
+    </div>
+</div>
+
+<!-- SECAO 5: TITULOS SUSTENTAVEIS -->
+<div class="section" id="bonds">
+    <div class="section-header">
+        <div class="section-number">05</div>
+        <div class="section-title-group">
+            <div class="section-title">Instrumentos de Captacao no Mercado de Capitais</div>
+            <div class="section-subtitle">Mapeamento completo de Green, Blue, Social, Gender, Sustainable, SLB e Transition Bonds</div>
+        </div>
+    </div>
+    <div class="bond-type bond-green">
+        <div class="bond-header">🟢 Green Bonds - Titulos Verdes Tradicionais</div>
+        <p style="color:var(--text-secondary); margin-bottom:18px; font-size:0.9em;"><strong>Definicao (ICMA Green Bond Principles):</strong> Recursos aplicados <strong>exclusivamente</strong> em projetos com beneficio ambiental evidente.</p>
+        <div class="three-col">
+            <div class="card" style="border-top:3px solid var(--success);">
+                <div class="card-title">Aplicacao no Hotel</div>
+                <div class="card-body"><ul><li>Construcao sustentavel LEED Platinum</li><li>Usinas solares fotovoltaicas integradas</li><li>Vans eletricas para translado</li><li>Chillers centrais de alta eficiencia</li></ul></div>
+            </div>
+            <div class="card" style="border-top:3px solid var(--success);">
+                <div class="card-title">KPIs Obrigatorios</div>
+                <div class="card-body"><ul><li>Economia anual em MWh</li><li>Emissoes de CO2 evitadas (tCO2e/ano)</li><li>Reducao de consumo energetico >=30%</li><li>Certificacao LEED ou IFC EDGE</li></ul></div>
+            </div>
+            <div class="card" style="border-top:3px solid var(--success);">
+                <div class="card-title">Impacto Financeiro</div>
+                <div class="card-body"><ul><li>Taxa: CDI + 1,8% a 2,5%</li><li>Prazo: 5-10 anos</li><li>Investidor: Fundos de clima globais</li><li>Validacao: Second Party Opinion (SPO)</li></ul></div>
+            </div>
+        </div>
+    </div>
+    <div class="bond-type bond-blue">
+        <div class="bond-header">🔵 Blue Bonds - Titulos Azuis (Subclasse Verde)</div>
+        <p style="color:var(--text-secondary); margin-bottom:18px; font-size:0.9em;"><strong>Definicao (ICMA Blue Bond Guidance):</strong> Subclasse de Green Bonds para projetos focados em <strong>oceanos e recursos hidricos</strong>.</p>
+        <div class="three-col">
+            <div class="card" style="border-top:3px solid var(--water);">
+                <div class="card-title">Aplicacao nas Piscinas</div>
+                <div class="card-body"><ul><li>Sistemas de ciclo fechado de agua</li><li>Reuso de 100% de efluentes hoteleiros</li><li>Captacao de agua da chuva</li><li>Filtragem biologica / ozonio (sem cloro)</li></ul></div>
+            </div>
+            <div class="card" style="border-top:3px solid var(--water);">
+                <div class="card-title">KPIs Obrigatorios</div>
+                <div class="card-body"><ul><li>Reducao de m3 consumidos/hospede/ano</li><li>Volume de agua reaproveitada (m3/ano)</li><li>Eliminacao de descarte de efluentes clorados</li><li>Monitoramento IoT em tempo real</li></ul></div>
+            </div>
+            <div class="card" style="border-top:3px solid var(--water);">
+                <div class="card-title">Impacto Financeiro</div>
+                <div class="card-body"><ul><li>Taxa: CDI + 1,5% a 2,2%</li><li>Prazo: 5-10 anos</li><li>Investidor: Fundos de agua e oceanos</li><li>Diferencial: Apelo comercial em resorts costeiros</li></ul></div>
+            </div>
+        </div>
+    </div>
+    <div class="bond-type bond-linked">
+        <div class="bond-header">⚫ Sustainability-Linked Bonds (SLB) - A "Joia da Coroa"</div>
+        <p style="color:var(--text-secondary); margin-bottom:18px; font-size:0.9em;"><strong>Definicao (ICMA SLBP):</strong> Recursos aplicados ao <strong>caixa geral da empresa</strong>. Os termos da divida sao alinhados ao desempenho contra metas de sustentabilidade predeterminadas.</p>
+        <div class="three-col">
+            <div class="card" style="border-top:3px solid #37474F;">
+                <div class="card-title">Aplicacao no Hotel</div>
+                <div class="card-body"><ul><li><strong>Caixa livre</strong> para holding hoteleira</li><li>Refinanciamento de dividas caras</li><li>Expansao da rede sem restricao de uso</li><li>Capital de giro sustentavel</li></ul></div>
+            </div>
+            <div class="card" style="border-top:3px solid #37474F;">
+                <div class="card-title">KPIs (Gatilhos)</div>
+                <div class="card-body"><ul><li>Reducao de emissoes CO2 em X% ate ano Y</li><li>Economia hidrica de X m3/ano</li><li>% de energia renovavel na matriz</li><li>Meta de diversidade de genero</li></ul></div>
+            </div>
+            <div class="card" style="border-top:3px solid #37474F;">
+                <div class="card-title">Mecanismo Step-Down/Step-Up</div>
+                <div class="card-body"><ul><li><strong>Taxa base:</strong> ~8,5% a.a.</li><li><strong>Se bater meta:</strong> -0,25% por KPI</li><li><strong>Se falhar:</strong> +0,25% penalidade</li><li><strong>Economia potencial:</strong> Ate 1% a.a.</li></ul></div>
+            </div>
+        </div>
+        <div class="callout-gold" style="margin-top:16px;">
+            <div class="callout-title">Por que o SLB e a "Joia da Coroa"</div>
+            O BIM gera metas perfeitas para o contrato SLB. Exemplo: <em>"Reduzir consumo de energia da rede em 35% ate o 3o ano de operacao"</em>. Como o BIM ja simula isso com precisao, o risco de o hotel errar a meta e sofrer penalidade e <strong>zero</strong>. O dinheiro entra como caixa livre, mas o custo cai conforme o projeto entrega resultados.
+        </div>
+    </div>
+    <div class="bond-type bond-sustainable">
+        <div class="bond-header">🟠 Sustainable Bonds - Titulos Sustentaveis Mistos</div>
+        <p style="color:var(--text-secondary); margin-bottom:18px; font-size:0.9em;"><strong>Definicao (ICMA Sustainable Bond Guidelines):</strong> Recursos aplicados em uma <strong>combinacao de projetos verdes e sociais</strong>. E o instrumento hibrido mais flexivel do mercado.</p>
+        <div class="three-col">
+            <div class="card" style="border-top:3px solid #6A1B9A;">
+                <div class="card-title">Aplicacao no Hotel</div>
+                <div class="card-body"><ul><li><strong>70% Green:</strong> Construcao LEED, solar, eficiencia</li><li><strong>30% Social:</strong> Empregos locais, capacitacao</li><li>Combinacao ideal para grandes empreendimentos</li></ul></div>
+            </div>
+            <div class="card" style="border-top:3px solid #6A1B9A;">
+                <div class="card-title">KPIs Obrigatorios</div>
+                <div class="card-body"><ul><li>Mix de indicadores ambientais + sociais</li><li>Alocacao obrigatoria minima 70/30</li><li>Relatorio anual de impacto (GRI/SASB)</li><li>Verificacao externa continua</li></ul></div>
+            </div>
+            <div class="card" style="border-top:3px solid #6A1B9A;">
+                <div class="card-title">Impacto Financeiro</div>
+                <div class="card-body"><ul><li>Taxa: CDI + 1,5% a 2,2%</li><li>Prazo: 5-10 anos</li><li>Investidor: Fundos ESG de amplo espectro</li><li>Vantagem: <strong>Maior liquidez do mercado</strong></li></ul></div>
+            </div>
+        </div>
+    </div>
+    <div class="ref-box">
+        <strong>Referencias Regulatorias:</strong> ICMA Green Bond Principles (2021) | ICMA Social Bond Principles (2023) | ICMA Sustainability-Linked Bond Principles (2023) | ICMA Blue Bond Guidance (2023) | ICMA Sustainable Bond Guidelines (2023) | Climate Bonds Initiative (CBI) Water Criteria | IFC EDGE Building Certification
+    </div>
+</div>
+
+<!-- SECAO 6: EMPREENDIMENTOS -->
+<div class="section" id="empreendimentos">
+    <div class="section-header">
+        <div class="section-number">06</div>
+        <div class="section-title-group">
+            <div class="section-title">Engenharia Financeira por Tipo de Empreendimento</div>
+            <div class="section-subtitle">Mapeamento de solucoes tecnicas, KPIs de credito e instrumentos financeiros aplicaveis por segmento</div>
+        </div>
+    </div>
+    <div class="empreendimento">
+        <div class="emp-title">🏢 Incorporacoes Residenciais Verticais - Predios de Alto Padrao e Penthouses</div>
+        <div class="two-col">
+            <div class="card" style="border:none; padding:0;">
+                <div class="card-title" style="border-bottom:none; padding-bottom:0;">Solucoes de Engenharia</div>
+                <div class="card-body">
+                    <ul>
+                        <li><strong>Piscinas suspensas modulares:</strong> Tanques de aco inoxidavel integrados ao BIM, reduzindo carga estrutural em 40% vs. concreto armado</li>
+                        <li><strong>Aquecimento termico reverso:</strong> Trocadores de calor capturam calor rejeitado do VRF para aquecer a piscina</li>
+                        <li><strong>Automacao IoT preditiva:</strong> Sensores monitoram pressao, vazao e pureza em tempo real</li>
+                        <li><strong>Revestimentos monoliticos:</strong> Substituicao de azulejos por mantas de estanqueidade de alta tecnologia</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card" style="border:none; padding:0;">
+                <div class="card-title" style="border-bottom:none; padding-bottom:0;">KPIs de Credito Destravados</div>
+                <div class="card-body">
+                    <ul>
+                        <li><strong>KPI Verde (MWh/ano):</strong> Reducao do consumo eletrico da area comum via reuso termico do ar-condicionado</li>
+                        <li><strong>KPI Azul (m3/ano):</strong> Sistema de reuso de agua de retrolavagem para descargas e irrigacao</li>
+                        <li><strong>Certificacao:</strong> LEED Platinum ou IFC EDGE para o edificio completo</li>
+                        <li><strong>Impacto no Valuation:</strong> Liquidez de venda dos apartamentos aumenta 45% com baixo Opex</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="callout-primary" style="margin-top:20px;">
+            <div class="callout-title">Argumento de Venda para o Incorporador</div>
+            "Nossa engenharia reduz o custo de condominio em 35%, tornando seus apartamentos de luxo os mais competitivos do mercado. Alem disso, entregamos os KPIs para acessar financiamento verde do BNDES a 6,5% a.a. e Green Bonds internacionais."
+        </div>
+    </div>
+    <div class="empreendimento">
+        <div class="emp-title">🏄 Surf Parks e Arenas de Ondas Artificiais</div>
+        <div class="two-col">
+            <div class="card" style="border:none; padding:0;">
+                <div class="card-title" style="border-bottom:none; padding-bottom:0;">Solucoes de Engenharia</div>
+                <div class="card-body">
+                    <ul>
+                        <li><strong>Filtracao massiva por Perlita:</strong> Reduz consumo de agua de retrolavagem em 90% vs. filtros de areia</li>
+                        <li><strong>Ciclo fechado com ozonio/UV:</strong> Agua permanece na piscina por anos sem descarte, eliminando cloraminas</li>
+                        <li><strong>Gerenciamento hidrodinamico por IA:</strong> Otimizacao do pulso eletrico dos geradores de ondas</li>
+                        <li><strong>Captacao pluvial massiva:</strong> Coberturas e pavimentos do entorno coletam agua da chuva para reposicao</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card" style="border:none; padding:0;">
+                <div class="card-title" style="border-bottom:none; padding-bottom:0;">KPIs de Credito Destravados</div>
+                <div class="card-body">
+                    <ul>
+                        <li><strong>Hibrido Blue & Green Bond:</strong> Reducao massiva de m3 descartados + otimizacao energetica de motores industriais</li>
+                        <li><strong>KPI Azul:</strong> Δ 45.000+ m3/ano de agua potavel poupada</li>
+                        <li><strong>KPI Verde:</strong> Economia de 30%+ em MWh/ano em bombas e geradores</li>
+                        <li><strong>Impacto no Valuation:</strong> Ativo elegivel para fundos de pensao globais e debentures verdes estruturadas</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="callout-danger" style="margin-top:20px;">
+            <div class="callout-title">Alerta de Elegibilidade</div>
+            Uma piscina de ondas mal projetada e barrada sumariamente na Lista de Exclusao do BID (Item 2.1.3) por alto impacto ambiental. A engenharia de ciclo fechado e <strong>obrigatoria</strong>, nao opcional.
+        </div>
+        <div class="callout-primary" style="margin-top:12px;">
+            <div class="callout-title">Argumento de Venda</div>
+            "Sua piscina de ondas sera o primeiro parque de surfe do Brasil a emitir um Blue Bond internacional. Nossa engenharia entrega os KPIs que o BID Invest exige para chancelar a operacao e atrair fundos globais."
+        </div>
+    </div>
+    <div class="empreendimento">
+        <div class="emp-title">🏨 Resorts, Hoteis de Luxo e Eco-Hoteis</div>
+        <div class="two-col">
+            <div class="card" style="border:none; padding:0;">
+                <div class="card-title" style="border-bottom:none; padding-bottom:0;">Solucoes de Engenharia</div>
+                <div class="card-body">
+                    <ul>
+                        <li><strong>Retrofit hidrico de ultrafiltracao:</strong> Mini-estacao de tratamento por membranas de osmose reversa na casa de maquinas</li>
+                        <li><strong>Reuso de 100% da retrolavagem:</strong> Agua tratada retorna para descargas de quartos e irrigacao de campos de golfe</li>
+                        <li><strong>Automacao IoT preditiva:</strong> Modo Eco-Mode automatico em horarios de baixa ocupacao</li>
+                        <li><strong>Barreiras termicas retraiteis:</strong> Coberturas automatizadas que reduzem perda de calor em 85%</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card" style="border:none; padding:0;">
+                <div class="card-title" style="border-bottom:none; padding-bottom:0;">KPIs de Credito Destravados</div>
+                <div class="card-body">
+                    <ul>
+                        <li><strong>Sistema DELTA (nota minima 5/10):</strong> Metricas exatas de sustentabilidade do turismo internacional</li>
+                        <li><strong>KPI Azul:</strong> Reducao de 60%+ no consumo de agua potavel por hospede</li>
+                        <li><strong>KPI Verde:</strong> Economia de 40%+ em MWh/ano no aquecimento de piscinas</li>
+                        <li><strong>Impacto no Valuation:</strong> EBITDA da holding inflado pela reducao drastica do Opex hoteleiro</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="callout-primary" style="margin-top:20px;">
+            <div class="callout-title">Argumento de Venda</div>
+            "Nossa tecnologia reduz em 60% o custo de utilidades do seu resort. Isso infla diretamente o EBITDA e atrai operadoras internacionais de bandeira de luxo (Ritz-Carlton, Six Senses) que exigem edificios verdes certificados."
+        </div>
+    </div>
+    <div class="empreendimento">
+        <div class="emp-title">🏟️ Centros de Treinamento Esportivo e Arenas Olimpicas</div>
+        <div class="two-col">
+            <div class="card" style="border:none; padding:0;">
+                <div class="card-title" style="border-bottom:none; padding-bottom:0;">Solucoes de Engenharia</div>
+                <div class="card-body">
+                    <ul>
+                        <li><strong>Usinas solares termicas dedicadas:</strong> Paineis de alta absorcao + backup de biomassa/biometano</li>
+                        <li><strong>Desumidificacao com recuperacao de energia:</strong> Condensacao do vapor de volta a piscina + captura de calor</li>
+                        <li><strong>Revestimentos monoliticos avancados:</strong> Eliminacao de rejuntes quimicos e reducao de 60% em lavagens pesadas</li>
+                        <li><strong>Bombas de alta eficiencia IE3/IE4:</strong> Inversores de frequencia com selo Inmetro classe A</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card" style="border:none; padding:0;">
+                <div class="card-title" style="border-bottom:none; padding-bottom:0;">KPIs de Credito Destravados</div>
+                <div class="card-body">
+                    <ul>
+                        <li><strong>BNDES Fundo Clima (Item 4.2.1.2):</strong> Maquinas eficientes classe A/B do Inmetro a 6,5% a.a.</li>
+                        <li><strong>KPI Verde:</strong> Reducao de 50%+ no consumo energetico do complexo aquatico</li>
+                        <li><strong>Social:</strong> Programas de inclusao de atletas de comunidades vulneraveis</li>
+                        <li><strong>Impacto no Valuation:</strong> Perenidade financeira da instituicao, reducao do custo fixo por associado</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="callout-primary" style="margin-top:20px;">
+            <div class="callout-title">Argumento de Venda</div>
+            "Seu clube sera blindado contra crises de escassez hidrica e bandeiras tarifarias. Nossa engenharia reduz o custo fixo por atleta em 40%, garantindo a sustentabilidade financeira da instituicao por decadas."
+        </div>
+    </div>
+</div>
+
+<!-- SECAO 7: DOCUMENTOS -->
+<div class="section" id="documentos">
+    <div class="section-header">
+        <div class="section-number">07</div>
+        <div class="section-title-group">
+            <div class="section-title">Dicionario de Pre-Requisitos Totais</div>
+            <div class="section-subtitle">Documentacao documental e tecnica obrigatoria para acesso a credito BNDES, BID Invest e emissao de titulos sustentaveis</div>
+        </div>
+    </div>
+    <div class="callout-dark">
+        <div class="callout-title">Regra de Ouro</div>
+        Sem estes documentos, NENHUM dos creditos (BNDES, BID Invest ou Bonds) pode ser destravado. A ordem de preparacao e sequencial - nao paralela.
+    </div>
+    <div class="scenario">
+        <div class="scenario-title">📁 LOTE 1 - Juridico, Governanca e Financeiro</div>
+        <div class="three-col">
+            <div class="card" style="border:none; padding:0;">
+                <div class="card-title" style="border-bottom:none; padding-bottom:0;">Estrutura Societaria</div>
+                <div class="card-body">
+                    <ul>
+                        <li>Estatuto Social atualizado da holding</li>
+                        <li>Atas de nomeacao da diretoria atual</li>
+                        <li>Contrato Social de todas as SPEs/CNPJs</li>
+                        <li>Declaracao de vinculo empresarial (holding + filiais)</li>
+                        <li>Certidao de Matricula do imovel (propriedade plena)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card" style="border:none; padding:0;">
+                <div class="card-title" style="border-bottom:none; padding-bottom:0;">Financeiro</div>
+                <div class="card-body">
+                    <ul>
+                        <li>Balancos Patrimoniais dos ultimos 2 anos (auditados)</li>
+                        <li>DREs dos ultimos 2 anos (auditados)</li>
+                        <li>Fluxo de caixa projetado (5 anos)</li>
+                        <li>Laudo de valuation patrimonial recente</li>
+                        <li>Relatorio de auditoria independente (CVM ou equivalente)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card" style="border:none; padding:0;">
+                <div class="card-title" style="border-bottom:none; padding-bottom:0;">Regularidade</div>
+                <div class="card-body">
+                    <ul>
+                        <li>CND Federal (Receita Federal)</li>
+                        <li>Certidao Negativa FGTS</li>
+                        <li>CADIN (positiva/negativa)</li>
+                        <li>CNDT (Certidao Negativa de Debitos Trabalhistas)</li>
+                        <li>Certidao de Regularidade do CAR (ativo/pendente)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="scenario">
+        <div class="scenario-title">📁 LOTE 2 - Engenharia e Arquitetura Digital</div>
+        <div class="three-col">
+            <div class="card" style="border:none; padding:0;">
+                <div class="card-title" style="border-bottom:none; padding-bottom:0;">BIM (Building Information Modeling)</div>
+                <div class="card-body">
+                    <ul>
+                        <li>Arquivos nativos (.rvt / .ifc) do empreendimento completo</li>
+                        <li>Compatibilizacao tridimensional (arquitetura + hidraulica + eletrica)</li>
+                        <li>Diagrama hidraulico das piscinas (tubulacao, bombas, filtros)</li>
+                        <li>Memorial de trocadores de calor e circuitos termicos</li>
+                        <li>Simulacao de eficiencia energetica (MWh/ano economizado)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card" style="border:none; padding:0;">
+                <div class="card-title" style="border-bottom:none; padding-bottom:0;">Engenharia Hidrica</div>
+                <div class="card-body">
+                    <ul>
+                        <li>Memorial de Balanco Hidrico Anual (Δ m3/ano)</li>
+                        <li>Projeto de ciclo fechado de reuso de 100%</li>
+                        <li>Memorial de filtragem regenerativa (Perlita/membranas)</li>
+                        <li>Planta de captacao pluvial e tanques subterraneos</li>
+                        <li>Laudo de eliminacao de descarte de efluentes clorados</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card" style="border:none; padding:0;">
+                <div class="card-title" style="border-bottom:none; padding-bottom:0;">Sustentabilidade e Certificacao</div>
+                <div class="card-body">
+                    <ul>
+                        <li>Relatorio de Simulacao Energetica (MWh/ano)</li>
+                        <li>Relatorio de Simulacao Hidrica (Δ m3/ano)</li>
+                        <li>Pre-avaliacao LEED Platinum ou IFC EDGE</li>
+                        <li>Laudo de emissoes de CO2 evitadas (tCO2e/ano)</li>
+                        <li>Arquivo .shapefile (.zip) para verificacao MapBiomas</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="scenario">
+        <div class="scenario-title">📁 LOTE 3 - Governanca ESG e DELTA Scorecard (BID Invest)</div>
+        <div class="three-col">
+            <div class="card" style="border:none; padding:0;">
+                <div class="card-title" style="border-bottom:none; padding-bottom:0;">Governanca Corporativa</div>
+                <div class="card-body">
+                    <ul>
+                        <li>Ata do Conselho firmando metas de diversidade (40%+ mulheres)</li>
+                        <li>Politica interna de equidade salarial de genero</li>
+                        <li>Composicao do conselho (% mulheres e minorias)</li>
+                        <li>Plano de capacitacao profissional para comunidades locais</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card" style="border:none; padding:0;">
+                <div class="card-title" style="border-bottom:none; padding-bottom:0;">IFC Performance Standards</div>
+                <div class="card-body">
+                    <ul>
+                        <li>Avaliacao de impacto ambiental e social (EIA/RIMA)</li>
+                        <li>Plano de gestao de saude e seguranca no trabalho</li>
+                        <li>Politica de direitos dos trabalhadores (IFC PS2)</li>
+                        <li>Plano de gestao de comunidades e stakeholders (IFC PS5)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card" style="border:none; padding:0;">
+                <div class="card-title" style="border-bottom:none; padding-bottom:0;">Sistema DELTA (BID Invest)</div>
+                <div class="card-body">
+                    <ul>
+                        <li>Matriz de resultados esperados com KPIs quantitativos</li>
+                        <li>Baseline de consumo energetico e hidrico pre-obra</li>
+                        <li>Projecao de impacto socioeconomico (empregos, renda)</li>
+                        <li>Plano de monitoramento e avaliacao (M&A) anual</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ref-box">
+        <strong>Referencias Regulatorias:</strong> Circular SUP/ADIG nº 36/2026-BNDES, itens 6.6.3 (Indicadores de Resultado), 6.8.3 (Responsavel Tecnico Qualificado) | IFC Performance Standards 1-8 (2022) | BID Invest DELTA Scorecard (2025) | ICMA Green/Social/SLB Principles (2023)
+    </div>
+</div>
+
+<!-- SECAO 8: WACC -->
+<div class="section" id="wacc">
+    <div class="section-header">
+        <div class="section-number">08</div>
+        <div class="section-title-group">
+            <div class="section-title">WACC, Valuation e Estrutura Hibrida Final</div>
+            <div class="section-subtitle">Modelagem financeira para projeto de R$ 500 milhoes com otimizacao de custo de capital</div>
+        </div>
+    </div>
+    <div class="wacc-box">
+        <div class="wacc-title">CALCULO DO WACC - PROJETO DE R$ 500.000.000</div>
+        <div class="pre-code">
++-----------------------------------------------------------------------+
+|                    PROJETO TOTAL: R$ 500.000.000                     |
++-----------------------------------------------------------------------+
+|                                                                        |
+|  BNDES FUNDO CLIMA (Base Estrutural)                                  |
+|     Subprograma Projetos de Investimento (Desenv. Urbano)             |
+|     10 CNPJs x R$ 50M = R$ 500.000.000                                |
+|     Taxa: ~10,4% a.a. (custo financeiro + remuneracoes)               |
+|     Prazo: 16 anos, carencia 5 anos                                     |
+|     % do projeto: 100% (sem necessidade de outras fontes)             |
+|                                                                        |
+|  BID INVEST (Validacao + Venture Debt)                                 |
+|     USD $5.000.000 (~R$ 25.000.000)                                   |
+|     Taxa: SOFR + 3,5% (~8,5% a.a. base)                               |
+|     Equity features: 2% warrants na SPV                                 |
+|     Prazo: 5 anos, carencia 24 meses                                  |
+|     Funcao: VALIDADOR para emissao futura de bonds                      |
+|                                                                        |
+|  SUSTAINABLE BONDS (Emissao no Mercado)                                |
+|     R$ 150.000.000 (30% do projeto)                                   |
+|     Taxa: CDI + 2,1% (~10,5% a.a. projetado)                        |
+|     Prazo: 7 anos                                                      |
+|     Chancela BID Invest = spread reduzido em 70 bps                   |
+|                                                                        |
++-----------------------------------------------------------------------+
+|  CALCULO DO WACC:                                                     |
+|                                                                        |
+|  BNDES:     R$ 500M x 10,4% = R$ 52.000.000/ano                       |
+|  BID:       R$  25M x  8,5% = R$  2.125.000/ano                       |
+|  Bonds:     R$ 150M x 10,5% = R$ 15.750.000/ano                       |
+|                                                                        |
+|  Custo Total Anual: R$ 69.875.000                                     |
+|  WACC Ponderado: ~9,6% a.a.                                           |
+|                                                                        |
+|  vs. Financiamento 100% Tradicional (CDI + 4,5% = ~13,5%):            |
+|  Custo tradicional: R$ 67.500.000/ano                                   |
+|                                                                        |
+|  ECONOMIA REAL COM ESTRUTURA ESG: ~R$ 19,6M/ano = R$ 314M em 16 anos |
++-----------------------------------------------------------------------+
+        </div>
+    </div>
+    <div class="callout-gold">
+        <div class="callout-title">Por que o BNDES ainda e a base estrutural</div>
+        Apesar do BID Invest ser superior em validacao internacional, o <strong>BNDES Fundo Clima e insubstituivel</strong> para a base do projeto porque: (1) Prazo de 16 anos (vs. 5-7 do BID), (2) Carencia de 5 anos (vs. 24 meses do BID), (3) Sem exposicao cambial (vs. USD do BID), (4) Sem equity dilution (vs. warrants do BID). A estrategia otima: <strong>BNDES para 70-80% da estrutura de divida + BID Invest como validador + Bonds para refinanciamento de medio prazo.</strong>
+    </div>
+    <div class="metric-row">
+        <div class="metric"><div class="metric-value">+25-40%</div><div class="metric-label">Aumento de EBITDA</div></div>
+        <div class="metric"><div class="metric-value">A+</div><div class="metric-label">Rating de Risco ESG</div></div>
+        <div class="metric"><div class="metric-value">-150 bps</div><div class="metric-label">Reducao de Spread Futuro</div></div>
+    </div>
+</div>
+
+<!-- SECAO 9: ROTEIRO DE ACAO -->
+<div class="section" id="acao">
+    <div class="section-header">
+        <div class="section-number">09</div>
+        <div class="section-title-group">
+            <div class="section-title">Roteiro de Acao e Proximos Passos</div>
+            <div class="section-subtitle">Estrategia operacional em tres fases sequenciais com complexidade crescente</div>
+        </div>
+    </div>
+    <div class="timeline">
+        <div class="tl-step">
+            <div class="tl-num">1</div>
+            <div class="tl-title">BNDES Automatico<br>(Indireto)</div>
+            <div class="tl-desc">Via banco comercial credenciado</div>
+            <div class="tl-time">45-60 dias</div>
+        </div>
+        <div class="tl-step">
+            <div class="tl-num">2</div>
+            <div class="tl-title">BNDES Clima<br>(Direto)</div>
+            <div class="tl-desc">Comites tecnicos do BNDES</div>
+            <div class="tl-time">90-120 dias</div>
+        </div>
+        <div class="tl-step">
+            <div class="tl-num">3</div>
+            <div class="tl-title">BID Lab<br>(Inovacao)</div>
+            <div class="tl-desc">Due Diligence ESG + DELTA</div>
+            <div class="tl-time">90-120 dias</div>
+        </div>
+        <div class="tl-step">
+            <div class="tl-num">4</div>
+            <div class="tl-title">BID Invest<br>(Financiamento)</div>
+            <div class="tl-desc">Aprovacao + contratacao</div>
+            <div class="tl-time">120-150 dias</div>
+        </div>
+        <div class="tl-step">
+            <div class="tl-num">5</div>
+            <div class="tl-title">BID Invest<br>(Emissao Bonds)</div>
+            <div class="tl-desc">Framework + SPO + Roadshow</div>
+            <div class="tl-time">150-180 dias</div>
+        </div>
+    </div>
+    <div class="three-col">
+        <div class="card" style="border-top:4px solid var(--primary);">
+            <div class="card-title">FASE 1 - Preparacao (0-30 dias)</div>
+            <div class="card-body">
+                <ul>
+                    <li>Definir localizacao geografica das unidades (Norte/Nordeste = limite ampliado R$ 150M/CNPJ)</li>
+                    <li>Estruturar SPV + CNPJs filiais (1 por unidade ou fase)</li>
+                    <li>Coletar Lote 1 de documentos (juridico/financeiro)</li>
+                    <li>Contratar consultoria LEED/EDGE para pre-avaliacao</li>
+                </ul>
+                <span class="tag tag-green">Complexidade: BAIXA</span>
+            </div>
+        </div>
+        <div class="card" style="border-top:4px solid var(--info);">
+            <div class="card-title">FASE 2 - Estruturacao (30-120 dias)</div>
+            <div class="card-body">
+                <ul>
+                    <li>Finalizar modelagem BIM com simulacoes energeticas e hidricas</li>
+                    <li>Protocolar no Sistema BNDES Online (janela fecha 15.12.2027)</li>
+                    <li>Aplicar ao BID Lab via bidlab.org (paralelo)</li>
+                    <li>Contratar banco arranjador para futura emissao de bonds</li>
+                </ul>
+                <span class="tag tag-blue">Complexidade: MEDIA</span>
+            </div>
+        </div>
+        <div class="card" style="border-top:4px solid #6A1B9A;">
+            <div class="card-title">FASE 3 - Captacao Global (120-270 dias)</div>
+            <div class="card-body">
+                <ul>
+                    <li>Aprovacao BNDES + 1o desembolso</li>
+                    <li>Due Diligence BID Invest + nota DELTA >=5</li>
+                    <li>Estruturacao do Framework de Bonds + SPO</li>
+                    <li>Roadshow internacional + emissao de Sustainable/SLB Bonds</li>
+                </ul>
+                <span class="tag tag-purple">Complexidade: ALTA</span>
+            </div>
+        </div>
+    </div>
+    <div class="callout-primary" style="margin-top:28px;">
+        <div class="callout-title">Recomendacao Final para a Diretoria</div>
+        A estrategia de financiamento mais sofisticada e rentavel para o projeto e: (1) Utilizar o <strong>BNDES Fundo Clima</strong> como base estrutural (50-70% do projeto) pela taxa subsidiada e prazo longo; (2) Contratar o <strong>BID Invest</strong> como validador e investidor ancora (5-10%) para obter o selo de qualidade internacional; (3) Emitir <strong>Sustainable Bonds ou SLB</strong> (20-30%) no mercado de capitais para diversificar fontes e reduzir WACC; (4) Manter <strong>10-15% de equity</strong> para diluicao controlada e alavancagem saudavel.<br><br>
+        <strong>Resultado esperado:</strong> WACC de ~9,6% a.a. vs. ~13,5% em financiamento tradicional, gerando uma economia de <strong>R$ 314 milhoes em 16 anos</strong>.
+    </div>
+    <div class="journey" style="margin-top:40px;">
+        <div class="journey-card journey-1">
+            <div class="journey-phase">Fase 1</div>
+            <div class="journey-title">Adequacao</div>
+            <ul class="journey-list">
+                <li>Instalacao fisica dos sistemas</li>
+                <li>Financiamento BNDES/CAIXA</li>
+                <li>Geracao de dados primarios via BIM e SROI</li>
+            </ul>
+            <p style="font-size:0.8em; color:var(--text-muted); margin-top:12px;"><strong>Objetivo:</strong> Fabrica de dados primarios para rastreabilidade de eficiencia</p>
+        </div>
+        <div class="journey-card journey-2">
+            <div class="journey-phase">Fase 2</div>
+            <div class="journey-title">Escala e Certificacao</div>
+            <ul class="journey-list">
+                <li>12-24 meses de historico real</li>
+                <li>Auditoria para LEED/EDGE/AQUA-HQE</li>
+                <li>Consolidacao do Portfolio Verde</li>
+            </ul>
+            <p style="font-size:0.8em; color:var(--text-muted); margin-top:12px;"><strong>Objetivo:</strong> Prova de conceito auditada por terceiros independentes</p>
+        </div>
+        <div class="journey-card journey-3">
+            <div class="journey-phase">Fase 3</div>
+            <div class="journey-title">Mercado de Capitais</div>
+            <ul class="journey-list">
+                <li>Emissao de Green Bonds</li>
+                <li>CPR Verde (hoteis-fazenda)</li>
+                <li>Comercializacao de Creditos de Carbono</li>
+            </ul>
+            <p style="font-size:0.8em; color:var(--text-muted); margin-top:12px;"><strong>Objetivo:</strong> Acesso aos mecanismos de captacao mais baratos do mundo</p>
+        </div>
+    </div>
+    <div class="callout-danger" style="margin-top:28px;">
+        <div class="callout-title">Alerta: Tentar acessar o mercado de capitais sem estruturar a adequacao de projetos resulta em:</div>
+        <ul style="margin-top:8px; padding-left:20px;">
+            <li><strong>Custo de capital elevado:</strong> investidores de Green Bonds exigem taxas maiores se os projetos sao baseados em estimativas vagas</li>
+            <li><strong>Barragem de rating ESG:</strong> agencias como Sustainalytics e MSCI bloqueiam emissoes sem lastro tecnico em BIM e SROI</li>
+            <li><strong>Risco juridico:</strong> quebra de governanca ambiental gera vencimento antecipado da divida e multas</li>
+        </ul>
+    </div>
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+    <div class="footer-title">Piscinas Sustentaveis ESG - Engenharia Hidrica, Transicao Energetica e Captacao de Credito Verde</div>
+    <div class="footer-divider"></div>
+    <div class="footer-text">
+        Fontes Regulatorias: Circular SUP/ADIG nº 36/2026-BNDES | Sustainable Debt Framework - BID Invest | IFC Performance Standards 1-8<br>
+        ICMA Green Bond Principles (2021) | ICMA Social Bond Principles (2023) | ICMA Sustainability-Linked Bond Principles (2023)<br>
+        Climate Bonds Initiative (CBI) | IFC EDGE Building Certification | Sistema DELTA - BID Invest<br><br>
+        Este documento tem carater estrategico e informativo. As condicoes finais estao sujeitas a aprovacao dos comites de credito do BNDES, BID Invest e dos bancos parceiros.<br>
+        Documento elaborado em conformidade com as diretrizes oficiais do BNDES e do Grupo BID. Nao constitui oferta de credito.
+    </div>
+</div>
+
+</div>
+
+<script>
+function showSection(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.target.classList.add('active');
+}
+</script>
+
+</body>
+</html>
